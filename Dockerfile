@@ -14,8 +14,10 @@ RUN apt-get update && \
     git \
     && rm -rf /var/lib/apt/lists/*
 
+
+ARG GITHUB_TOKEN
 # Clone your GitHub repository (read-only access)
-RUN git clone https://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@github.com/sone-dayan/main-odoo8-repo.git /opt/odoo
+RUN git clone https://${GITHUB_TOKEN}@github.com/sone-dayan/main-odoo8-repo.git /opt/odoo
 
 # Set the working directory
 WORKDIR /opt/odoo/odoo
